@@ -1571,8 +1571,11 @@ def Cell_Label_Define(st_data, ligand, receptor,cell_pair, outdir):
     CCIlist = np.array(cell_pair_new)
     CCIlist[:, 1] = np.char.replace(CCIlist[:, 1], 'C', '')
     CCIlist[:, 2] = np.char.replace(CCIlist[:, 2], 'C', '')
-    CCIlist[:, 1] = CCIlist[:, 1].astype(np.int) - 1
-    CCIlist[:, 2] = CCIlist[:, 2].astype(np.int) - 1
+    # CCIlist[:, 1] = CCIlist[:, 1].astype(np.int) - 1
+    # CCIlist[:, 2] = CCIlist[:, 2].astype(np.int) - 1
+    CCIlist[:, 1] = CCIlist[:, 1].astype(np.int64) - 1
+    CCIlist[:, 2] = CCIlist[:, 2].astype(np.int64) - 1
+
     CCIlist_label = CCIlist[:, -1]
     CCIlist_source = CCIlist[:, 1]
     CCIlist_target = CCIlist[:, 2]
